@@ -6,7 +6,7 @@ An interactive practice site for **CYBER 110: Intro to Cybersecurity** at BYU. S
 
 ## What's inside
 
-203 questions in 12 modules, in course order:
+212 questions in 12 modules, in course order:
 
 | Module | Covers |
 |---|---|

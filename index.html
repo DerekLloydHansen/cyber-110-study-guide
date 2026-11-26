@@ -333,6 +333,12 @@ const MODULES = [
        "Manage risk, since it can't be eliminated"],
      correct:3,
      exp:'Risk can be reduced, accepted, mitigated, or transferred, but never removed entirely. The goal is to <strong>manage</strong> it.'},
+
+    {id:'f19', type:'short',
+     q:'Using the Information Assurance Model\'s three countermeasure categories, give one <strong>technology</strong>, one <strong>policy</strong>, and one <strong>people</strong> example that would help protect a company from <strong>phishing</strong>. Label each one.',
+     keywords:['technology','policy','people','filter','training','aware','verify','mfa','rule','simulat','report','block'],
+     modelAnswer:'Technology: email filtering that quarantines suspicious messages and blocks known malicious links. Policy: a rule that any request to change payment details or reset a password that arrives by email must be verified by phone using a known number. People: regular phishing-awareness training, including simulated phishing emails, that teaches employees to spot and report suspicious messages.',
+     exp:'The three countermeasure categories are <strong>technology</strong> (hardware, software, network controls), <strong>policy and practice</strong> (rules and procedures), and <strong>people</strong> (awareness, training, education). Strong answers give a realistic example of each and label it correctly.'},
   ]
 },
 /* ───────────────────────── QUIZ 2 ───────────────────────── */
@@ -532,6 +538,17 @@ const MODULES = [
        "A screenshot of the VM's desktop saved for documentation"],
      correct:2,
      exp:'Snapshots make VMs great for risky testing: if something breaks or gets infected, you <strong>roll back</strong> to the clean snapshot.'},
+
+    {id:'o23', type:'mc',
+     q:'Which statement about <strong>Linux</strong> is accurate?',
+     opts:["Linux can only be used by typing commands, since it has no graphical interface","Linux comes in many distributions, such as Ubuntu and Kali, and many include a full graphical desktop","Linux is proprietary software that only one company is allowed to sell","Kali Linux is built mainly for beginners who want a simple everyday desktop"],
+     correct:1,
+     exp:'Linux is open source and comes in many <strong>distributions</strong>. Ubuntu is user-friendly and good for beginners; <strong>Kali</strong> comes preloaded with hundreds of security tools (Nmap, Wireshark, Metasploit) for ethical hacking. Most distributions offer both a graphical desktop and the command line.'},
+    {id:'o24', type:'short',
+     q:'Describe two reasons someone would use a <strong>virtual machine</strong>, and give an example scenario for each.',
+     keywords:['test','sandbox','malware','compatib','backup','snapshot','lab','learn','isolat','safe','windows','linux','mac','roll back'],
+     modelAnswer:'(1) Safe testing (sandboxing): a security student opens a suspicious email attachment inside a VM, so if it is malware the real computer stays safe, and they can roll back to a clean snapshot afterward. (2) Compatibility: a Mac user needs a Windows-only program for class, so they run Windows in a VM instead of buying another computer. Other good reasons: practicing in a lab (for example, running Kali Linux for CTFs), learning a new operating system, or keeping a backup image of a whole system.',
+     exp:'Use cases from class: <strong>compatibility</strong>, <strong>backup</strong>, <strong>testing/sandboxing</strong>, and <strong>education</strong>. Remember that VMs are still limited by the host\'s hardware and aren\'t safe if the host itself is compromised.'},
   ]
 },
 /* ───────────────────────── QUIZ 3 ───────────────────────── */
@@ -684,6 +701,12 @@ const MODULES = [
        "You feel the need to hide the action from others"],
      correct:3,
      exp:'If you\'d hide an action from others, that is generally a sign you are <strong>self-justifying</strong>. A related guideline: "You are not the exception." Don\'t excuse actions you wouldn\'t approve of in others.'},
+
+    {id:'e20', type:'mc',
+     q:'A gym collects members\' phone numbers to send class-schedule reminders, then uses the same numbers for political robocalls without asking. Which GDPR principle does this most clearly violate?',
+     opts:['Purpose limitation','Accuracy','Storage limitation','Integrity and confidentiality'],
+     correct:0,
+     exp:'<strong>Purpose limitation</strong> means personal data collected for one stated purpose shouldn\'t be reused for an unrelated one without a lawful basis.'},
   ]
 },
 /* ───────────────────────── QUIZ 4 ───────────────────────── */
@@ -758,15 +781,6 @@ const MODULES = [
        "A detailed security hardening guide is included in the box with the product"],
      correct:2,
      exp:'<strong>Secure by default</strong> means the safest settings are already on when the customer first uses the product, without the customer having to find and enable them.'},
-    {id:'d10', type:'mc',
-     q:'A design team sketches a new password-reset flow on paper and asks five students to "click" through the drawings with their fingers. What is this?',
-     opts:[
-       "A high-fidelity prototype",
-       "A penetration test",
-       "A low-fidelity prototype",
-       "A production release"],
-     correct:2,
-     exp:'Paper sketches and simple wireframes are <strong>low-fidelity prototypes</strong>: fast, cheap, and easy to throw away.'},
     {id:'d11', src:'quiz', type:'short',
      q:'Explain the difference between a <strong>low-fidelity</strong> and a <strong>high-fidelity</strong> prototype, and why a design team might use a low-fidelity one first.',
      keywords:['sketch','paper','cheap','quick','fast','rough','detail','realistic','feedback','change','early','interactive'],
@@ -818,15 +832,22 @@ const MODULES = [
        "Because whole systems are cheaper to protect than individual parts"],
      correct:2,
      exp:'Cybersecurity professionals have to be <strong>systems thinkers</strong> who see how parts relate across the whole lifecycle, including interfaces, data, policies, and people.'},
-    {id:'d17', type:'mc',
-     q:'A UX designer draws a comic-strip sequence showing a nurse checking in a patient in a busy lobby. What tool is this, and what is it for?',
-     opts:[
-       "A high-fidelity prototype, which tests the final visuals",
-       "A storyboard, which captures the context where the design will be used",
-       "A penetration test, which finds vulnerabilities",
-       "A privacy policy, which explains data use"],
-     correct:1,
-     exp:'<strong>Storyboards</strong> capture context. For example, a crowded lobby reveals the risk of shoulder-surfing that a screen mock-up alone might miss.'},
+
+    {id:'d18', type:'mc',
+     q:'Which statement best describes <strong>human-centered design</strong>?',
+     opts:["A process focused mainly on making a product look attractive and modern","A one-time, step-by-step plan that engineers follow from requirements to release","An iterative cycle of understanding users, exploring ideas, prototyping, and testing with real people","A method where designers rely on their own instincts instead of talking to users"],
+     correct:2,
+     exp:'Human-centered design is <strong>iterative</strong>, not linear. It starts by understanding users (observing, interviewing), then explores ideas, prototypes, and tests, and repeats. Function and usability matter more than looks.'},
+    {id:'d19', type:'matching',
+     q:'Match each <strong>human-centered design method</strong> to what it is best for.',
+     pairs:[
+       {L:'Observation & interviews', R:'Understanding what users actually do and need'},
+       {L:'Storyboard', R:'Showing the context and sequence in which a design will be used'},
+       {L:'Low-fidelity prototype', R:'Getting fast, cheap feedback on an idea before investing in details'},
+       {L:'Usability testing', R:'Watching real users try a design to find where they struggle'},
+     ],
+     distractors:['Making the final product look polished before anyone tries it'],
+     exp:'These methods come up again and again in the design cycle: <strong>empathize</strong> (observe and interview), capture <strong>context</strong> (storyboards), build cheap <strong>prototypes</strong>, and <strong>test</strong> with real users.'},
   ]
 },
 /* ───────────────────────── QUIZ 5 ───────────────────────── */
@@ -999,6 +1020,12 @@ const MODULES = [
        "Fiber uses light; Ethernet uses electricity"],
      correct:3,
      exp:'Copper Ethernet carries data as <strong>electricity</strong>; fiber carries it as <strong>(infrared) light</strong>.'},
+
+    {id:'w20', type:'short',
+     q:'Explain what <strong>DNS</strong> does and why your browser needs it before it can load a website like byu.edu.',
+     keywords:['ip','address','translat','name','domain','server','connect','lookup','phone book','number'],
+     modelAnswer:'DNS (the Domain Name System) translates human-friendly domain names like byu.edu into the numeric IP addresses computers use to find each other. My browser needs the server\'s IP address before it can connect to it and request the page, so a DNS lookup is the first step after I type a URL. It works like a phone book for the Internet.',
+     exp:'Without DNS we would have to memorize IP addresses. Because DNS is the first step in reaching a site, attackers sometimes target it (for example, by redirecting lookups to fake sites).'},
   ]
 },
 /* ───────────────────── FINDING & EVALUATING INFORMATION (Oct 9) ───────────────────── */
@@ -1376,6 +1403,22 @@ const MODULES = [
        "Adversary-in-the-middle"],
      correct:3,
      exp:'If an attacker can hand you <em>their</em> public key while pretending it belongs to someone else, they can read and relay your messages. <strong>Certificates</strong> (as used by HTTPS) help prove whose key is whose.'},
+
+    {id:'c19', type:'mc',
+     q:'What is the biggest practical challenge of <strong>symmetric</strong> encryption?',
+     opts:["It can only be used to create digital signatures","It is far too slow to encrypt large files or web traffic","It needs a different key to encrypt than to decrypt","Securely getting the same secret key to both people before they communicate"],
+     correct:3,
+     exp:'With symmetric encryption both sides need the <strong>same secret key</strong>, so the hard part is <strong>key distribution</strong>. Asymmetric cryptography solves this, and HTTPS uses it to set up a symmetric key, which is then used because it is fast.'},
+    {id:'c20', type:'mc',
+     q:'You download a program from two different mirror sites. Both copies produce exactly the same SHA-256 digest. What can you conclude?',
+     opts:['The two files are identical, barring an extremely rare collision','Both files were encrypted with the same secret key','Both files are safe, because hashing removes malware','Both files were downloaded from the same server'],
+     correct:0,
+     exp:'A hash digest works like a <strong>fingerprint</strong>: matching digests mean matching files. It doesn\'t prove a file is safe, only that it hasn\'t changed, so compare it with the hash the developer publishes.'},
+    {id:'c21', type:'short',
+     q:'A classmate says, "Symmetric and asymmetric encryption are basically the same thing." Explain <strong>two important differences</strong> to correct them.',
+     keywords:['one key','same key','shared','pair','public','private','faster','slower','speed','distribut','signature'],
+     modelAnswer:'(1) Keys: symmetric encryption uses one shared secret key for both encrypting and decrypting, while asymmetric uses a key pair, a public key anyone can have and a private key only the owner keeps. (2) Speed and key sharing: symmetric is much faster, but both people must somehow share the secret key safely first; asymmetric is slower, but strangers can communicate securely without sharing a secret in advance. (Asymmetric also makes digital signatures possible.)',
+     exp:'Key differences: <strong>one key vs. a key pair</strong>, <strong>speed</strong>, <strong>key distribution</strong>, and <strong>signatures/non-repudiation</strong>. HTTPS combines both to get the best of each.'},
   ]
 },
 /* ───────────────────────── QUIZ 8 ───────────────────────── */
@@ -1785,15 +1828,6 @@ const MODULES = [
        "Preventative"],
      correct:1,
      exp:'Restoring backups <strong>fixes the situation and minimizes impact</strong>. Patch management, antivirus quarantine, and account resets are also corrective.'},
-    {id:'s7', type:'mc',
-     q:'Which of these is best classified as a <strong>preventative</strong> control?',
-     opts:[
-       "A firewall that blocks unauthorized connections",
-       "A log review that finds failed logins",
-       "Restoring from backup",
-       "An incident report"],
-     correct:0,
-     exp:'Firewalls, access controls (least privilege), encryption, and endpoint protection <strong>stop</strong> attacks from succeeding.'},
     {id:'s8', type:'tf',
      q:'A single security control can fall into more than one classification.',
      correct:0,
@@ -1857,6 +1891,26 @@ const MODULES = [
      keywords:['mfa','password','encrypt','firewall','antivirus','backup','alert','notification','log','restore','lock','update','patch','monitor'],
      modelAnswer:'Asset: my bank account. Preventative: a strong unique password plus multi-factor authentication. Detective: text alerts for every login and every transaction over $1. Corrective: a plan to call the bank immediately to freeze the account and reverse fraudulent charges, plus resetting my password.',
      exp:'A good answer gives one control that <strong>stops</strong> attacks, one that <strong>notices</strong> them, and one that <strong>recovers</strong> from them, a small example of defense in depth.'},
+
+    {id:'s16', type:'matching',
+     q:'Match each control <strong>classification</strong> to an example of it.',
+     pairs:[
+       {L:'Deterrent', R:'A login banner warning that unauthorized use will be prosecuted'},
+       {L:'Preventative', R:'A locked door on the server room'},
+       {L:'Detective', R:'An alert that fires when critical system files change unexpectedly'},
+       {L:'Corrective', R:'Reimaging an infected laptop back to a clean state'},
+     ],
+     exp:'<strong>Deterrent</strong> discourages, <strong>preventative</strong> stops, <strong>detective</strong> notices and reports, and <strong>corrective</strong> fixes or limits the damage.'},
+    {id:'s17', type:'matching',
+     q:'Match each term to an <strong>example</strong> of it.',
+     pairs:[
+       {L:'Vulnerability', R:'A laptop that is missing last month\'s security patch'},
+       {L:'Threat actor', R:'A hacktivist group angry about a company\'s policies'},
+       {L:'Exploit', R:'Code that uses a known software flaw to take control of a server'},
+       {L:'Risk', R:'The chance that a breach costs the company customers and money'},
+     ],
+     distractors:['A firewall that blocks unknown incoming connections'],
+     exp:'The extra choice is a <strong>security control</strong>. Remember: a vulnerability is a weakness, a threat actor is who might attack, an exploit is how they take advantage, and risk is the potential loss.'},
   ]
 },
 ];

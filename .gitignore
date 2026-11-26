@@ -1,0 +1,5 @@
+# Files the Claude desktop app saves here (e.g., exams and answer keys). Never publish these.
+Claude outputs/
+
+# macOS
+.DS_Store
