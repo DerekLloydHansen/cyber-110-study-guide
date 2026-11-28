@@ -554,7 +554,7 @@ const MODULES = [
 /* ───────────────────────── QUIZ 3 ───────────────────────── */
 {
   id:'ethics', quiz:3, title:'Ethics, Privacy & AI', color:'#8a3ab9',
-  desc:'What ethics is, ethical frameworks, codes of ethics, privacy laws, GDPR, AI challenges',
+  desc:'What ethics is, ethical frameworks, codes of ethics, privacy and privacy laws, AI challenges',
   questions:[
     {id:'e1', src:'quiz', type:'multi',
      q:'Which of the following are good descriptions of <strong>ethics</strong>? (Select all that apply)',
@@ -591,29 +591,16 @@ const MODULES = [
        "Minimum viable security"],
      correct:1,
      exp:'She judges the <strong>action itself</strong> (lying) as wrong, no matter the result. That is deontological, or duty-based, ethics.'},
-    {id:'e6', src:'quiz', type:'multi',
-     q:'Which of these are among the <strong>7 principles of GDPR</strong>? (Select all that apply)',
-     opts:['Lawfulness, Fairness, and Transparency','Purpose Limitation','Data Protection','Data Minimization','Consent Management','Data Governance','Accuracy','Accountability','Storage Limitation','Integrity and Confidentiality'],
-     correct:[0,1,3,6,7,8,9],
-     exp:'The seven GDPR principles are: <strong>lawfulness, fairness &amp; transparency</strong>; <strong>purpose limitation</strong>; <strong>data minimization</strong>; <strong>accuracy</strong>; <strong>storage limitation</strong>; <strong>integrity &amp; confidentiality</strong> (security); and <strong>accountability</strong>. "Data protection," "consent management," and "data governance" sound related, but they aren\'t principle names.'},
     {id:'e7', type:'mc',
-     q:'A fitness app collects users\' location, contacts, and microphone access, even though it only needs step counts to work. Which GDPR principle is it most clearly violating?',
-     opts:[
-       "Data minimization",
-       "Accuracy",
-       "Storage limitation",
-       "Accountability"],
+     q:'A hospital employee looks up a celebrity patient\'s medical records out of curiosity and tells friends what they say. Which U.S. privacy law most directly applies?',
+     opts:['HIPAA','FERPA','GLBA','CCPA'],
      correct:0,
-     exp:'<strong>Data minimization</strong> means collecting only the personal data that is actually necessary for the stated purpose.'},
+     exp:'<strong>HIPAA</strong> protects healthcare information. FERPA covers student education records, GLBA covers financial information, and the CCPA is a California state law covering California consumers\' personal data.'},
     {id:'e8', type:'mc',
-     q:'A company keeps every job applicant\'s résumé, ID scans, and references forever "just in case," years after the positions are filled. Which GDPR principle does this violate?',
-     opts:[
-       "Accuracy",
-       "Purpose limitation",
-       "Lawfulness, fairness and transparency",
-       "Storage limitation"],
+     q:'Which situation is the clearest example of a <strong>privacy</strong> problem, even though no system was hacked?',
+     opts:['A website goes offline for an hour during a power outage','A file is corrupted when a download is interrupted','A user forgets their password and gets locked out','A fitness app quietly sells users\' location history to data brokers'],
      correct:3,
-     exp:'<strong>Storage limitation</strong> says personal data should be kept no longer than necessary. Old data that nobody needs is still a liability if it is breached.'},
+     exp:'Privacy is about freedom from unwanted intrusion and <strong>unauthorized access to personal information</strong>. Selling location history without users\' knowledge violates it even with no breach. The other situations are availability, integrity, and authentication issues.'},
     {id:'e9', type:'matching',
      q:'Match each <strong>AI challenge</strong> to its description.',
      pairs:[
@@ -666,10 +653,10 @@ const MODULES = [
        {L:'FERPA', R:'Student education records'},
        {L:'HIPAA', R:'Healthcare information'},
        {L:'GLBA (Gramm-Leach-Bliley)', R:'Financial information'},
-       {L:'COPPA', R:'Data about children under 13'},
+       {L:'CCPA', R:'Personal data of California consumers (a state law)'},
      ],
      distractors:['Classified military information'],
-     exp:'These are the main federal privacy laws. States add their own, such as the <strong>California Consumer Privacy Act (CCPA)</strong>.'},
+     exp:'FERPA, HIPAA, and GLBA are federal privacy laws. States add their own, such as the <strong>California Consumer Privacy Act (CCPA)</strong>.'},
     {id:'e16', type:'tf',
      q:'Ethics means there is always a single right answer to every dilemma.',
      correct:1,
@@ -701,12 +688,6 @@ const MODULES = [
        "You feel the need to hide the action from others"],
      correct:3,
      exp:'If you\'d hide an action from others, that is generally a sign you are <strong>self-justifying</strong>. A related guideline: "You are not the exception." Don\'t excuse actions you wouldn\'t approve of in others.'},
-
-    {id:'e20', type:'mc',
-     q:'A gym collects members\' phone numbers to send class-schedule reminders, then uses the same numbers for political robocalls without asking. Which GDPR principle does this most clearly violate?',
-     opts:['Purpose limitation','Accuracy','Storage limitation','Integrity and confidentiality'],
-     correct:0,
-     exp:'<strong>Purpose limitation</strong> means personal data collected for one stated purpose shouldn\'t be reused for an unrelated one without a lawful basis.'},
   ]
 },
 /* ───────────────────────── QUIZ 4 ───────────────────────── */
@@ -1026,6 +1007,11 @@ const MODULES = [
      keywords:['ip','address','translat','name','domain','server','connect','lookup','phone book','number'],
      modelAnswer:'DNS (the Domain Name System) translates human-friendly domain names like byu.edu into the numeric IP addresses computers use to find each other. My browser needs the server\'s IP address before it can connect to it and request the page, so a DNS lookup is the first step after I type a URL. It works like a phone book for the Internet.',
      exp:'Without DNS we would have to memorize IP addresses. Because DNS is the first step in reaching a site, attackers sometimes target it (for example, by redirecting lookups to fake sites).'},
+    {id:'w21', type:'mc',
+     q:'Your laptop on your home Wi-Fi shows the IP address <code>192.168.0.23</code>. What kind of address is this?',
+     opts:['A public address that anyone on the Internet can reach directly','A private address used only inside your local network','The address of your Internet provider\'s DNS server','A MAC address assigned by the laptop\'s manufacturer'],
+     correct:1,
+     exp:'Addresses starting with <code>192.168.</code>, <code>10.</code>, or <code>172.16.</code>\u2013<code>172.31.</code> are <strong>private</strong>. They work only inside a local network, and many homes reuse the same ones. Your router shares one <strong>public</strong> IP address (assigned by your ISP) for all your devices when they talk to the Internet.'},
   ]
 },
 /* ───────────────────── FINDING & EVALUATING INFORMATION (Oct 9) ───────────────────── */
